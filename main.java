@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +19,8 @@ class Student {
     }
 
     public double averageScore() {
-        if (scores.isEmpty()) {
+        System.out.println("scores.isEmpty() " + scores.isEmpty());
+       if (scores.isEmpty()) {
             return 0;
         }
         double sum = 0;
@@ -32,14 +32,14 @@ public class StudentReport {
 
     public static List<Student> readStudentsFromCSV(String filePath) {
         List<Student> students = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) { 
             String line;
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
                 String name = data[0];
                 List<Double> scores = new ArrayList<>();
-                for (int i = 1; i < data.length; i++) {
+                 for (int i = 0; i < data.length; i++) { 
                     scores.add(Double.parseDouble(data[i]));
                 }
                 students.add(new Student(name, scores));
@@ -54,13 +54,13 @@ public class StudentReport {
         List<String> reportLines = new ArrayList<>();
         reportLines.add("Student Name, Average Score");
         for (Student student : students) {
-            reportLines.add(student.getName() + ", " + String.format("%.2f", student.averageScore()));
+            reportLines.add(student.getName() + ", " + String.format("%.2f", student.averageScore())); 
         }
         return reportLines;
     }
 
     public static void saveReportToFile(List<String> reportLines, String outputFile) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile))) { 
             for (String line : reportLines) {
                 bw.write(line);
                 bw.newLine();
@@ -80,3 +80,4 @@ public class StudentReport {
         saveReportToFile(reportLines, outputFile);
     }
 }
+
