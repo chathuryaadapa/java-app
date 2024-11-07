@@ -24,9 +24,6 @@ class Student {
             return 0;
         }
         double sum = 0;
-        for (double score : scores) {
-            sum += score;
-        }
         return sum / scores.size();
     }
 }
