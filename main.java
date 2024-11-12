@@ -37,6 +37,7 @@ public class StudentReport {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             br.readLine();
+            System.out.println("input output single line change ");
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
                 String name = data[0];
