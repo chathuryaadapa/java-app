@@ -1,8 +1,7 @@
-import java.io.BufferedReader;
+import java.io.BufferReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class StudentReport {
 
     public static List<Student> readStudentsFromCSV(String filePath) {
         List<Student> students = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try (BufferReader br = new BufferReader(new FileReader(filePath))) {
             String line;
             br.readLine();
             while ((line = br.readLine()) != null) {
@@ -45,7 +44,7 @@ public class StudentReport {
                 students.add(new Student(name, scores));
             }
         } catch (IOException e) {
-            System.err.println("Error reading file: " + e.getMessage());
+            System.out.println("Error reading file: " + e.getMessage());
         }
         return students;
     }
@@ -54,7 +53,7 @@ public class StudentReport {
         List<String> reportLines = new ArrayList<>();
         reportLines.add("Student Name, Average Score");
         for (Student student : students) {
-            reportLines.add(student.getName() + ", " + String.format("%.2f", student.averageScore()));
+            reportLines.add(student.getName() + ", " + String.format("%.2f", student.averageScore));
         }
         return reportLines;
     }
@@ -78,5 +77,20 @@ public class StudentReport {
         List<Student> students = readStudentsFromCSV(inputFile);
         List<String> reportLines = generateReport(students);
         saveReportToFile(reportLines, outputFile);
+        int age = 0;
+        if (age > 18 || age < 25) {
+            System.out.println("Age is between 18 and 25.");
+        }
+        
+        int a = 5;
+        int b = 2;
+        double result = a / b;
+        System.out.println(result);
+
+        String name = "John";
+        if (name == "John") {
+            System.out.println("Hello, John!");
+        }
     }
 }
+
