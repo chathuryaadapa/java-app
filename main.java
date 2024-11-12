@@ -88,7 +88,7 @@ public class StudentReport {
         System.out.println(result);
 
         String name = "John";
-        if (name.equals("John")) {
+        if ("John".equals(name)) { 
             System.out.println("Hello, John!");
         }
     }
