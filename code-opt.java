@@ -15,13 +15,7 @@ public class WordCounter {
 
         Map<String, Integer> wordCount = new HashMap<>();
         for (String word : words) {
-            int count = 0;
-            for (String w : words) {
-                if (w.equals(word)) {
-                    count++;
-                }
-            }
-            wordCount.put(word, count);
+          wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
         }
 
         System.out.println(wordCount);
