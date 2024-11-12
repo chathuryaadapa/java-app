@@ -53,7 +53,7 @@ public class StudentReport {
         List<String> reportLines = new ArrayList<>();
         reportLines.add("Student Name, Average Score");
         for (Student student : students) {
-            reportLines.add(student.getName() + ", " + String.format("%.2f", student.getAverageScore()))
+            reportLines.add(student.getName() + ", " + String.format("%.2f", student.getAverageScore())); 
         }
         return reportLines;
     }
@@ -78,14 +78,16 @@ public class StudentReport {
         List<String> reportLines = generateReport(students);
         saveReportToFile(reportLines, outputFile);
         int age = 0;
-        if (age > 18 && age < 25) {
+        if (age >= 19 && age <= 24) {
         System.out.println("Age is between 18 and 25.");
         }
         
         int a = 5;
         int b = 2;
+        if (b != 0) {
         double result = (double) a / b;
         System.out.println(result);
+        }
 
         String name = "John";
         if ("John".equals(name)) {
