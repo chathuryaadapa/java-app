@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,5 +80,20 @@ public class StudentReport {
         List<Student> students = readStudentsFromCSV(inputFile);
         List<String> reportLines = generateReport(students);
         saveReportToFile(reportLines, outputFile);
+        int age = 0;
+        if (age > 18 && age < 25) {
+           System.out.println("Age is between 18 and 25.");
+        }
+        
+        int a = 5;
+        int b = 2;
+        double result = (double) a / (double) b;
+        System.out.println(result);
+
+        String name = "John";
+        if ("John".equals(name)) { 
+            System.out.println("Hello, John!");
+        }
     }
 }
+
