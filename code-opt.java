@@ -14,15 +14,10 @@ public class WordCounter {
         words.add("banana");
 
         Map<String, Integer> wordCount = new HashMap<>();
-        for (String word : words) {
-            int count = 0;
-            for (String w : words) {
-                if (w.equals(word)) {
-                    count++;
-                }
-            }
-            wordCount.put(word, count);
-        }
+       for (String word : words) {
+           int count = Collections.frequency(words, word);
+           wordCount.put(word, count);
+       }
 
         System.out.println(wordCount);
     }
