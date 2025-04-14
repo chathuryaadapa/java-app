@@ -13,6 +13,17 @@ public class WordCounter {
         words.add("banana");
         words.add("banana");
 
-        System.out.println("optimization code");
+        Map<String, Integer> wordCount = new HashMap<>();
+        for (String word : words) {
+            int count = 0;
+            for (String w : words) {
+                if (w.equals(word)) {
+                    count++;
+                }
+            }
+            wordCount.put(word, count);
+        }
+
+        System.out.println(wordCount);
     }
 }
