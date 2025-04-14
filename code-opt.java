@@ -13,6 +13,12 @@ public class WordCounter {
         words.add("banana");
         words.add("banana");
 
-        System.out.println("optimization code");
+        Map<String, Integer> wordCount = new HashMap<>();
+       for (String word : words) {
+           int count = Collections.frequency(words, word);
+           wordCount.put(word, count);
+       }
+
+        System.out.println(wordCount);
     }
 }
